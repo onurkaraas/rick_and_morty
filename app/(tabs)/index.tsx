@@ -1,13 +1,16 @@
 import React from "react";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import SearchComponent from "@/components/SearchComp";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/queryClient";
 
 const HomePage: React.FC = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <SearchComponent />
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView style={{ flex: 1, paddingTop: 30npx }}>
+        <SearchComponent />
+      </SafeAreaView>
+    </QueryClientProvider>
   );
 };
 

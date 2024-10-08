@@ -34,23 +34,17 @@ export default function RootLayout() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <SafeAreaProvider>
-        <ThemeProvider
-          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-        >
-          <Stack>
-            <Stack.Screen
-              options={{
-                title: "Home",
-                headerShown: false,
-              }}
-              name="(tabs)"
-            />
-            <Slot />
-          </Stack>
-        </ThemeProvider>
-      </SafeAreaProvider>
-    </QueryClientProvider>
+    <ThemeProvider value={DefaultTheme}>
+      <Stack>
+        <Stack.Screen
+          options={{
+            title: "Home",
+            headerShown: false,
+          }}
+          name="(tabs)"
+        />
+        <Slot />
+      </Stack>
+    </ThemeProvider>
   );
 }
